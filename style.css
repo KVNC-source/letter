@@ -5,7 +5,7 @@
   --color-navy: #0a1931; /* Deep, elegant navy blue */
   --color-dark-gold: #c2a26f; /* Muted, rich gold */
   --color-light-gold: #e6d2b3; /* Lighter gold for text/accents */
-  --color-off-white: #fff7ed; /* UPDATED: Warmer Creamy White for letter background */
+  --color-off-white: #fff7ed; /* Warmer Creamy White for letter background */
   --color-shadow: rgba(0, 0, 0, 0.4);
   --color-button-hover: #d5b887;
   --font-primary: "Montserrat", sans-serif;
@@ -69,14 +69,13 @@ body {
   opacity: 0;
   max-height: 0;
   padding: 0 20px;
-  /* We use 'display: none' after transition for screen readers/layout */
 }
 
 /* ------------------------------------ */
 /* Letter Content Styles */
 /* ------------------------------------ */
 #letter-content {
-  /* *** IMPROVED: Smoother transitions *** */
+  /* IMPROVED: Smoother transitions */
   background-color: var(--color-off-white);
   /* Text color for the opened letter is dark navy, ensuring high contrast */
   color: var(--color-navy);
@@ -92,14 +91,12 @@ body {
 #letter-content.scroll-hidden {
   display: none; /* Initial hidden state */
   opacity: 0;
-  /* Removed transform for a cleaner fade-in */
 }
 
 /* Visible state (after opening) */
 #letter-content.scroll-visible {
   display: block;
   opacity: 1;
-  /* Removed transform for a cleaner fade-in */
 }
 
 #letter-content h1 {
@@ -120,6 +117,16 @@ body {
 #letter-content strong {
   color: var(--color-dark-gold);
   font-weight: 700;
+}
+
+/* --- Signature Styling --- */
+/* Target the specific paragraph containing the signature */
+#letter-content p[style*="text-align: right; margin-top: 10px"] {
+  font-family: var(--font-display);
+  font-size: 1.3rem; /* Make the signature slightly larger */
+  color: var(--color-dark-gold); /* Style it in gold */
+  margin-top: 30px !important; /* Increase margin for separation, overriding inline style */
+  margin-bottom: 5px; /* Reduce bottom margin */
 }
 
 /* ------------------------------------ */
@@ -253,13 +260,6 @@ hr {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Signature */
-#letter-content > p:last-child {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--color-dark-gold);
-}
-
 /* ------------------------------------ */
 /* Animations & Utility Classes */
 /* ------------------------------------ */
@@ -303,4 +303,12 @@ hr {
   #volume-control {
     justify-content: center;
   }
+}
+
+#letter-content p[style*="text-align: right; margin-top: 10px"] {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-dark-gold);
+  margin-top: 30px !important;
+  margin-bottom: 5px;
 }
